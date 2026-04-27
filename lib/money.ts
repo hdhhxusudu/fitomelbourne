@@ -4,5 +4,5 @@ export function formatUsd(cents: number): string {
     currency: "USD",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
-  }).format(cents / 100);
+  }).format(cents / 100)
 }

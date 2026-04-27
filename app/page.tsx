@@ -149,7 +149,7 @@ export default function Home() {
         className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20"
         aria-labelledby="featured-heading"
       >
-        <div className="relative overflow-hidden rounded-[1.75rem] border border-white/8 bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent p-8 shadow-[0_40px_120px_-60px_rgba(0,0,0,0.9)] sm:p-10 lg:p-12">
+        <div className="relative overflow-hidden rounded-[1.75rem] border border-white/8 bg-gradient-to-b from-white/5 via-white/2 to-transparent p-8 shadow-[0_40px_120px_-60px_rgba(0,0,0,0.9)] sm:p-10 lg:p-12">
           <div className="pointer-events-none absolute -left-24 top-0 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
           <div className="pointer-events-none absolute -right-20 bottom-0 h-56 w-56 rounded-full bg-teal-500/10 blur-3xl" />
 
