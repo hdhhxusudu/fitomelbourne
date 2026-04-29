@@ -1,38 +1,53 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { ProductList } from "@/components/shop/product-list";
-import { products } from "@/lib/products";
-import { SITE_NAME } from "@/lib/site";
+import type { Metadata } from "next"
+import Link from "next/link"
+import { ProductList } from "@/components/shop/product-list"
+import { products } from "@/lib/products"
+import { SITE_NAME } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: `Product list`,
+  title: "Product list",
   description: `Full peptide catalog for ${SITE_NAME}: SKU, purity, net weight, and price.`,
   alternates: { canonical: "/products" },
-};
+}
 
 export default function ProductsListPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/65">
+            All products
+          </p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             Product list
           </h1>
-          <p className="mt-3 max-w-2xl text-base leading-relaxed text-emerald-100/75">
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-emerald-100/65">
             All SKUs in one table. Open a row for full handling notes and add-to-cart on
             the detail page.
           </p>
         </div>
         <Link
           href="/shop"
-          className="self-start text-sm font-semibold text-emerald-200 hover:text-white"
+          className="self-start inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-200/65 transition hover:text-emerald-200 focus-visible:ring-2 focus-visible:ring-emerald-400/55"
+          aria-label="Switch to grid catalog view"
         >
-          Grid catalog →
+          <svg
+            className="h-4 w-4"
+            viewBox="0 0 16 16"
+            fill="none"
+            aria-hidden="true"
+          >
+            <rect x="2" y="2" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.3" />
+            <rect x="9" y="2" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.3" />
+            <rect x="2" y="9" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.3" />
+            <rect x="9" y="9" width="5" height="5" rx="1" stroke="currentColor" strokeWidth="1.3" />
+          </svg>
+          Grid catalog
         </Link>
       </div>
       <div className="mt-10">
         <ProductList items={products} />
       </div>
     </div>
-  );
+  )
 }

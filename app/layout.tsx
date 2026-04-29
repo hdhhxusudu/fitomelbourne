@@ -1,34 +1,36 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { Providers } from "@/app/providers";
-import { SiteFooter } from "@/components/site/site-footer";
-import { SiteHeader } from "@/components/site/site-header";
-import { rootMetadata } from "@/lib/seo";
+import type { Metadata } from "next"
+import { Geist, Geist_Mono } from "next/font/google"
+import "./globals.css"
+import { Providers } from "@/app/providers"
+import { SiteFooter } from "@/components/site/site-footer"
+import { SiteHeader } from "@/components/site/site-header"
+import { rootMetadata } from "@/lib/seo"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-});
+  display: "swap",
+})
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
-});
+  display: "swap",
+})
 
-export const metadata: Metadata = rootMetadata();
+export const metadata: Metadata = rootMetadata()
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full bg-[#020f0d] font-sans text-emerald-50">
+      <body className="min-h-full bg-[#020c09] font-sans text-emerald-50">
         <Providers>
           <div className="flex min-h-full flex-col">
             <SiteHeader />
@@ -38,5 +40,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  );
+  )
 }

@@ -1,76 +1,123 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { getPaymentLinkUrl } from "@/lib/payments";
-import { SITE_NAME } from "@/lib/site";
+import type { Metadata } from "next"
+import Link from "next/link"
+import { getPaymentLinkUrl } from "@/lib/payments"
+import { SITE_NAME } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Pay",
   description: `Secure payment link for ${SITE_NAME} orders.`,
   alternates: { canonical: "/pay" },
-};
+}
 
 export default function PayPage() {
-  const paymentUrl = getPaymentLinkUrl();
+  const paymentUrl = getPaymentLinkUrl()
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-semibold tracking-tight text-white">Pay</h1>
-      <p className="mt-4 text-sm leading-relaxed text-emerald-100/75">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300/60">
+        Payment
+      </p>
+      <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        Secure checkout
+      </h1>
+      <p className="mt-4 text-sm leading-relaxed text-emerald-100/65">
         Complete your card payment through our hosted checkout. After paying, keep your
-        receipt email and reference your order details if you emailed us a PO or cart
-        summary beforehand.
+        receipt email and reference your order details.
       </p>
 
       {paymentUrl ? (
-        <div className="mt-10 rounded-2xl border border-emerald-400/25 bg-emerald-400/5 p-8 text-center">
-          <p className="text-sm text-emerald-100/80">
-            You will leave this site to pay on our processor (for example Stripe). The
-            link opens in a new tab.
+        /* ——— Payment link configured ——— */
+        <div className="mt-10 rounded-3xl border border-emerald-400/20 bg-emerald-400/5 p-8 text-center">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-emerald-400/20 bg-emerald-400/10">
+            <svg
+              className="h-6 w-6 text-emerald-300"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+          <p className="mt-5 text-sm font-medium text-emerald-100/75">
+            You will leave this site to pay on our processor. The link opens in a new tab.
           </p>
           <a
             href={paymentUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-emerald-400 px-6 py-3.5 text-sm font-semibold text-zinc-950 transition hover:bg-emerald-300 sm:w-auto sm:min-w-[240px]"
+            className="mt-6 inline-flex h-12 items-center justify-center rounded-full bg-linear-to-r from-emerald-400 to-teal-400 px-8 text-sm font-semibold text-zinc-950 shadow-[0_0_24px_-4px_rgba(52,211,153,0.45)] transition-all hover:brightness-110 hover:shadow-[0_0_32px_-2px_rgba(52,211,153,0.55)]"
           >
             Open secure payment page
           </a>
         </div>
       ) : (
-        <div className="mt-10 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-6 text-sm leading-relaxed text-amber-100/90">
-          <p className="font-semibold text-amber-50">Payment link not configured</p>
-          <p className="mt-2 text-amber-100/80">
+        /* ——— Not configured ——— */
+        <div className="mt-10 rounded-2xl border border-amber-400/20 bg-amber-400/5 p-6">
+          <div className="flex items-center gap-3">
+            <svg
+              className="h-5 w-5 shrink-0 text-amber-300/75"
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 2L18 16H2L10 2z"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M10 8v4M10 13.5h.01"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+              />
+            </svg>
+            <p className="text-sm font-semibold text-amber-50">
+              Payment link not configured
+            </p>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-amber-100/70">
             Add a Stripe Payment Link (or any HTTPS checkout URL) to your environment:
           </p>
-          <pre className="mt-4 overflow-x-auto rounded-lg border border-white/10 bg-black/40 p-3 text-left text-xs text-emerald-100/90">
+          <pre className="mt-4 overflow-x-auto rounded-xl border border-white/8 bg-black/40 p-4 text-left text-xs text-emerald-100/80">
             NEXT_PUBLIC_STRIPE_PAYMENT_LINK=https://buy.stripe.com/your_link_here
           </pre>
-          <p className="mt-3 text-xs text-amber-100/70">
-            Alternatively set <span className="font-mono">NEXT_PUBLIC_PAYMENT_LINK</span>{" "}
+          <p className="mt-3 text-xs text-amber-100/60">
+            Alternatively set{" "}
+            <code className="rounded-md border border-white/8 bg-black/30 px-1.5 py-0.5 font-mono">
+              NEXT_PUBLIC_PAYMENT_LINK
+            </code>{" "}
             to the same kind of URL.
           </p>
         </div>
       )}
 
-      <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+      <div className="mt-8 flex flex-col gap-2.5 sm:flex-row">
         <Link
           href="/cart"
-          className="inline-flex flex-1 items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-emerald-100/85 hover:border-white/30 hover:text-white"
+          className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/10 py-2.5 text-sm font-semibold text-emerald-100/75 transition hover:border-white/20 hover:text-white"
         >
           Back to cart
         </Link>
         <Link
           href="/products"
-          className="inline-flex flex-1 items-center justify-center rounded-full border border-white/15 px-5 py-3 text-sm font-semibold text-emerald-100/85 hover:border-white/30 hover:text-white"
+          className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/10 py-2.5 text-sm font-semibold text-emerald-100/75 transition hover:border-white/20 hover:text-white"
         >
           Product list
         </Link>
       </div>
 
-      <p className="mt-8 text-xs leading-relaxed text-emerald-100/50">
+      <p className="mt-8 text-xs leading-relaxed text-emerald-100/35">
         {SITE_NAME} does not store card numbers on this site when you use a hosted payment
         link from your processor.
       </p>
     </div>
-  );
+  )
 }
