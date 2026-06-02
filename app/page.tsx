@@ -7,7 +7,7 @@ import { SITE_NAME } from "@/lib/site"
 export const metadata: Metadata = {
   title: `${SITE_NAME} · Research-grade peptides`,
   description:
-    "A modern storefront for laboratory peptide supply with cart, catalog, and compliance-first copy.",
+    "A modern storefront template for laboratory peptide supply with cart, catalog, and compliance-first copy.",
 }
 
 const featured = products.slice(0, 3)
@@ -15,190 +15,172 @@ const featured = products.slice(0, 3)
 const trustPills = [
   { label: "Research use only" },
   { label: "Batch traceability" },
-  { label: "Cold-chain guidance" },
-  { label: "\u226598\u201399% purity" },
+  { label: "Cold-chain notes" },
 ] as const
 
 const highlights = [
   {
-    title: "Full Traceability",
-    body: "Batch records, identity testing, and release criteria modeled after real supplier workflows — every shipment is fully auditable.",
-    path: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
+    title: "Traceability",
+    body: "Batch records, identity testing, and release criteria modeled like a real supplier workflow.",
+    icon: (
+      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M9 12l2 2 4-4m5 2a9 9 0 11-18 0 9 9 0 0118 0z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
   },
   {
-    title: "Cold Chain",
-    body: "Packaging and handling notes surface on every product page so your team has full cold-chain visibility before receiving.",
-    path: "M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z",
+    title: "Cold chain",
+    body: "Packaging and handling notes are surfaced on each product page so teams can plan receiving.",
+    icon: (
+      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
+      </svg>
+    ),
   },
   {
-    title: "Compliance-First",
-    body: "Research-use positioning, jurisdiction reminders, and institutional verification guidance are built into the purchase flow.",
-    path: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z",
+    title: "Compliance-first",
+    body: "Research-use positioning and jurisdiction reminders are included in the layout so you can adapt them with counsel.",
+    icon: (
+      <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path
+          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
   },
 ] as const
 
 export default function Home() {
   return (
     <div className="flex-1">
-      {/* ——— Hero ——— */}
       <section
-        className="relative overflow-hidden border-b border-white/8"
-        aria-labelledby="hero-heading"
+        className="relative overflow-hidden border-b border-white/[0.08]"
+        aria-labelledby="home-hero-heading"
       >
-        {/* Background layers */}
-        <div className="pointer-events-none absolute inset-0 bg-[#020c09]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_140%_90%_at_50%_-15%,rgba(52,211,153,0.17),transparent_55%),radial-gradient(circle_at_8%_55%,rgba(45,212,191,0.09),transparent_42%),radial-gradient(circle_at_92%_12%,rgba(16,185,129,0.11),transparent_40%)]" />
-        {/* Dot grid */}
-        <div
-          className="pointer-events-none absolute inset-0 opacity-35"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle, rgba(52,211,153,0.25) 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
-            maskImage:
-              "linear-gradient(180deg, transparent 0%, black 25%, black 75%, transparent 100%)",
-          }}
-        />
+        {/* Base + mesh */}
+        <div className="pointer-events-none absolute inset-0 bg-[#020a08]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_120%_80%_at_50%_-20%,rgba(52,211,153,0.22),transparent_50%),radial-gradient(circle_at_15%_40%,rgba(45,212,191,0.12),transparent_42%),radial-gradient(circle_at_90%_20%,rgba(16,185,129,0.14),transparent_35%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03)_0px,transparent_1px)] bg-[length:100%_64px] opacity-[0.35]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.02)_0px,transparent_1px)] bg-[length:64px_100%] opacity-30" />
 
-        <div className="relative mx-auto max-w-6xl px-4 pb-24 pt-20 sm:px-6 sm:pb-28 sm:pt-24 lg:pb-32 lg:pt-28">
-          {/* Eyebrow */}
+        <div className="relative mx-auto max-w-6xl px-4 pb-20 pt-16 sm:px-6 sm:pb-24 sm:pt-20 lg:pt-24">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/9 px-3.5 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-200/85">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+            <span className="inline-flex items-center rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-emerald-100/90">
               {SITE_NAME}
             </span>
-          </div>
-
-          {/* Headline */}
-          <h1
-            id="hero-heading"
-            className="mt-7 max-w-4xl text-[2.5rem] font-semibold leading-[1.07] tracking-tight text-white sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]"
-          >
-            Research peptides with{" "}
-            <span className="bg-linear-to-r from-emerald-200 via-emerald-300 to-teal-200 bg-clip-text text-transparent">
-              documentation you can audit
-            </span>
-            .
-          </h1>
-
-          {/* Sub-copy */}
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-emerald-100/65 sm:text-lg sm:leading-relaxed">
-            Production-ready storefront: fast catalog pages, clean product detail, and a
-            cart that persists locally while you integrate real checkout and fulfillment.
-          </p>
-
-          {/* Trust pills */}
-          <div className="mt-8 flex flex-wrap gap-2">
             {trustPills.map((pill) => (
               <span
                 key={pill.label}
-                className="inline-flex items-center rounded-full border border-white/9 bg-white/4 px-3 py-1 text-[11px] font-medium tracking-wide text-emerald-100/60"
+                className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-[11px] font-medium tracking-wide text-emerald-100/70"
               >
                 {pill.label}
               </span>
             ))}
           </div>
 
-          {/* CTAs */}
+          <h1
+            id="home-hero-heading"
+            className="mt-8 max-w-4xl text-[2.25rem] font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl sm:leading-[1.06] lg:text-6xl"
+          >
+            Research peptides with{" "}
+            <span className="bg-gradient-to-r from-emerald-200 via-teal-200 to-cyan-200 bg-clip-text text-transparent">
+              documentation you can audit
+            </span>
+            .
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-emerald-50/75 sm:text-lg">
+            Built as a production-ready Next.js storefront: fast catalog pages, clean product
+            detail, and a cart that persists locally while you integrate real checkout and
+            fulfillment.
+          </p>
+
           <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
             <Link
               href="/shop"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-linear-to-r from-emerald-400 to-teal-400 px-8 text-sm font-semibold text-zinc-950 shadow-[0_0_32px_-6px_rgba(52,211,153,0.5)] transition-all hover:shadow-[0_0_40px_-4px_rgba(52,211,153,0.6)] hover:brightness-110 focus-visible:ring-2 focus-visible:ring-emerald-400/60 focus-visible:ring-offset-1"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-gradient-to-r from-emerald-400 to-teal-400 px-8 text-sm font-semibold text-zinc-950 shadow-[0_0_40px_-8px_rgba(52,211,153,0.55)] transition hover:from-emerald-300 hover:to-teal-300 hover:shadow-[0_0_48px_-6px_rgba(45,212,191,0.5)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-300"
             >
-              Browse catalog
+              Shop catalog
             </Link>
             <Link
               href="/cart"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-white/12 bg-white/4 px-8 text-sm font-semibold text-emerald-50/90 backdrop-blur-sm transition hover:border-white/25 hover:bg-white/7 hover:text-white focus-visible:ring-2 focus-visible:ring-white/30"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-white/15 bg-white/[0.03] px-8 text-sm font-semibold text-emerald-50/95 backdrop-blur-sm transition hover:border-emerald-400/35 hover:bg-white/[0.06] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/50"
             >
               View cart
             </Link>
           </div>
 
-          {/* Highlight cards */}
-          <dl className="mt-20 grid gap-4 sm:grid-cols-3">
+          <dl className="mt-16 grid gap-4 sm:grid-cols-3 sm:gap-5">
             {highlights.map((item) => (
               <div
                 key={item.title}
-                className="group relative overflow-hidden rounded-2xl border border-white/8 bg-linear-to-br from-white/6 to-white/2 p-6 transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/20 hover:shadow-[0_12px_48px_-16px_rgba(52,211,153,0.18)]"
+                className="group relative overflow-hidden rounded-2xl border border-white/[0.09] bg-gradient-to-br from-white/[0.07] to-white/[0.02] p-5 shadow-[0_24px_80px_-48px_rgba(0,0,0,0.85)] transition duration-300 hover:-translate-y-0.5 hover:border-emerald-400/25 hover:shadow-[0_28px_90px_-40px_rgba(16,185,129,0.18)]"
               >
-                <div
-                  className="pointer-events-none absolute -right-6 -top-6 h-20 w-20 rounded-full bg-emerald-400/8 blur-2xl transition-all group-hover:bg-emerald-400/15"
-                  aria-hidden="true"
-                />
-                <dt className="flex items-center gap-2.5 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200/75">
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-emerald-400/15 bg-emerald-500/10 text-emerald-300">
-                    <svg
-                      className="h-4 w-4"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d={item.path}
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-emerald-400/10 blur-2xl transition group-hover:bg-emerald-400/20" />
+                <dt className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-emerald-200/85">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-emerald-400/20 bg-emerald-500/10 text-emerald-200">
+                    {item.icon}
                   </span>
                   {item.title}
                 </dt>
-                <dd className="mt-4 text-sm leading-relaxed text-emerald-50/65">
-                  {item.body}
-                </dd>
+                <dd className="mt-4 text-sm leading-relaxed text-emerald-50/78">{item.body}</dd>
               </div>
             ))}
           </dl>
         </div>
       </section>
 
-      {/* ——— Featured products ——— */}
       <section
-        className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24"
+        className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20"
         aria-labelledby="featured-heading"
       >
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/65">
-              Catalog
-            </p>
-            <h2
-              id="featured-heading"
-              className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+        <div className="relative overflow-hidden rounded-[1.75rem] border border-white/[0.08] bg-gradient-to-b from-white/[0.05] via-white/[0.02] to-transparent p-8 shadow-[0_40px_120px_-60px_rgba(0,0,0,0.9)] sm:p-10 lg:p-12">
+          <div className="pointer-events-none absolute -left-24 top-0 h-64 w-64 rounded-full bg-emerald-500/10 blur-3xl" />
+          <div className="pointer-events-none absolute -right-20 bottom-0 h-56 w-56 rounded-full bg-teal-500/10 blur-3xl" />
+
+          <div className="relative flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-emerald-300/80">
+                Catalog
+              </p>
+              <h2
+                id="featured-heading"
+                className="mt-2 text-2xl font-semibold tracking-tight text-white sm:text-3xl"
+              >
+                Featured peptides
+              </h2>
+              <p className="mt-3 max-w-2xl text-sm leading-relaxed text-emerald-100/72 sm:text-base">
+                A curated slice of the catalog. Swap SKUs, purity targets, and pricing in one
+                module to match your real inventory.
+              </p>
+            </div>
+            <Link
+              href="/shop"
+              className="inline-flex shrink-0 items-center gap-1 text-sm font-semibold text-emerald-200 transition hover:gap-2 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-400/60"
             >
-              Featured peptides
-            </h2>
-            <p className="mt-3 max-w-xl text-sm leading-relaxed text-emerald-100/65">
-              Swap SKUs, purity targets, and pricing in one module to match your real
-              inventory.
-            </p>
+              View all
+              <span aria-hidden="true">→</span>
+            </Link>
           </div>
-          <Link
-            href="/shop"
-            className="self-start inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-300/75 transition-all hover:gap-2.5 hover:text-emerald-200 focus-visible:ring-2 focus-visible:ring-emerald-400/55 focus-visible:ring-offset-1"
-            aria-label="View all products in the catalog"
-          >
-            View all
-            <svg
-              className="h-4 w-4"
-              viewBox="0 0 16 16"
-              fill="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M3 8h10M9 4l4 4-4 4"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </Link>
-        </div>
-        <div className="mt-10">
-          <ProductGrid items={featured} />
+
+          <div className="relative mt-10">
+            <ProductGrid items={featured} />
+          </div>
         </div>
       </section>
     </div>

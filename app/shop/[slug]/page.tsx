@@ -40,12 +40,12 @@ export default async function ProductPage({ params }: Props) {
       <nav className="flex items-center gap-2 text-sm" aria-label="Breadcrumb">
         <Link
           href="/shop"
-          className="text-emerald-200/55 transition hover:text-emerald-200"
+          className="text-sky-200/55 transition hover:text-sky-200"
         >
           Catalog
         </Link>
         <svg
-          className="h-3.5 w-3.5 text-emerald-200/25"
+          className="h-3.5 w-3.5 text-sky-200/25"
           viewBox="0 0 14 14"
           fill="none"
           aria-hidden="true"
@@ -64,8 +64,8 @@ export default async function ProductPage({ params }: Props) {
       {/* Two-column layout */}
       <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_400px] lg:items-start xl:gap-14">
         {/* Product hero panel */}
-        <div className="overflow-hidden rounded-3xl border border-white/8 bg-[radial-gradient(circle_at_25%_15%,rgba(52,211,153,0.30),transparent_55%),radial-gradient(circle_at_85%_8%,rgba(45,212,191,0.20),transparent_48%),linear-gradient(155deg,#041810,#0a2b1e)] p-10 lg:p-12">
-          <div className="text-[11px] uppercase tracking-[0.28em] text-emerald-300/65">
+        <div className="overflow-hidden rounded-3xl border border-white/8 bg-[radial-gradient(circle_at_25%_15%,rgba(56,189,248,0.30),transparent_55%),radial-gradient(circle_at_85%_8%,rgba(34,211,238,0.20),transparent_48%),linear-gradient(155deg,#040d20,#0a1620)] p-10 lg:p-12">
+          <div className="text-[11px] uppercase tracking-[0.28em] text-sky-300/65">
             Lyophilized reference standard
           </div>
           <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white lg:text-5xl">
@@ -74,13 +74,13 @@ export default async function ProductPage({ params }: Props) {
 
           {/* Spec badges */}
           <div className="mt-6 flex flex-wrap gap-2">
-            <span className="rounded-full border border-emerald-400/20 bg-emerald-400/9 px-3.5 py-1.5 text-sm font-medium text-emerald-200/90">
+            <span className="rounded-full border border-sky-400/20 bg-sky-400/9 px-3.5 py-1.5 text-sm font-medium text-sky-200/90">
               {product.netWeightMg}&thinsp;mg net
             </span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-emerald-100/80">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-sky-100/80">
               {product.purityLabel} purity
             </span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 font-mono text-sm text-emerald-100/65">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 font-mono text-sm text-sky-100/65">
               {product.sku}
             </span>
           </div>
@@ -90,10 +90,10 @@ export default async function ProductPage({ params }: Props) {
             {specRows(product.netWeightMg, product.purityLabel).map(
               ({ label, value }) => (
                 <div key={label}>
-                  <dt className="text-[11px] uppercase tracking-[0.15em] text-emerald-300/55">
+                  <dt className="text-[11px] uppercase tracking-[0.15em] text-sky-300/55">
                     {label}
                   </dt>
-                  <dd className="mt-1 text-sm font-medium text-emerald-50/90">{value}</dd>
+                  <dd className="mt-1 text-sm font-medium text-sky-50/90">{value}</dd>
                 </div>
               ),
             )}
@@ -104,19 +104,19 @@ export default async function ProductPage({ params }: Props) {
         <div className="flex flex-col gap-6">
           {/* Price */}
           <div>
-            <div className="text-[11px] uppercase tracking-[0.2em] text-emerald-300/55">
+            <div className="text-[11px] uppercase tracking-[0.2em] text-sky-300/55">
               Price
             </div>
             <div className="mt-2 text-4xl font-semibold text-white">
               {formatUsd(product.priceCents)}
             </div>
-            <div className="mt-1 text-xs text-emerald-100/45">
+            <div className="mt-1 text-xs text-sky-100/45">
               Per unit &middot; excluding shipping
             </div>
           </div>
 
           {/* Description */}
-          <p className="text-sm leading-relaxed text-emerald-100/70">
+          <p className="text-sm leading-relaxed text-sky-100/70">
             {product.description}
           </p>
 
@@ -165,8 +165,8 @@ export default async function ProductPage({ params }: Props) {
                 key={label}
                 className="rounded-xl border border-white/7 bg-white/3 p-3 text-center"
               >
-                <div className="text-[11px] font-semibold text-emerald-100/75">{label}</div>
-                <div className="mt-0.5 text-[10px] text-emerald-100/45">{sub}</div>
+                <div className="text-[11px] font-semibold text-sky-100/75">{label}</div>
+                <div className="mt-0.5 text-[10px] text-sky-100/45">{sub}</div>
               </div>
             ))}
           </div>

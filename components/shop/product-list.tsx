@@ -21,7 +21,7 @@ export function ProductList({ items }: { items: Product[] }) {
               ).map(([heading, right]) => (
                 <th
                   key={heading}
-                  className={`px-5 py-3.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-emerald-200/65${right ? " text-right" : ""}`}
+                  className={`px-5 py-3.5 text-[11px] font-semibold uppercase tracking-[0.15em] text-sky-200/65${right ? " text-right" : ""}`}
                   scope="col"
                 >
                   {heading}
@@ -35,23 +35,23 @@ export function ProductList({ items }: { items: Product[] }) {
                 <td className="px-5 py-4">
                   <Link
                     href={`/shop/${p.slug}`}
-                    className="font-semibold text-white transition hover:text-emerald-200"
+                    className="font-semibold text-white transition hover:text-sky-200"
                   >
                     {p.name}
                   </Link>
-                  <div className="mt-1 max-w-xs text-xs leading-relaxed text-emerald-100/50">
+                  <div className="mt-1 max-w-xs text-xs leading-relaxed text-sky-100/50">
                     {p.shortDescription}
                   </div>
                 </td>
-                <td className="px-5 py-4 font-mono text-xs text-emerald-100/55">
+                <td className="px-5 py-4 font-mono text-xs text-sky-100/55">
                   {p.sku}
                 </td>
                 <td className="px-5 py-4">
-                  <span className="rounded-full border border-emerald-400/15 bg-emerald-400/[0.08] px-2.5 py-0.5 text-xs font-medium text-emerald-200/80">
+                  <span className="rounded-full border border-sky-400/15 bg-sky-400/[0.08] px-2.5 py-0.5 text-xs font-medium text-sky-200/80">
                     {p.purityLabel}
                   </span>
                 </td>
-                <td className="px-5 py-4 text-sm text-emerald-100/70">
+                <td className="px-5 py-4 text-sm text-sky-100/70">
                   {p.netWeightMg}&thinsp;mg
                 </td>
                 <td className="px-5 py-4 text-right font-semibold text-white">
@@ -60,7 +60,7 @@ export function ProductList({ items }: { items: Product[] }) {
                 <td className="px-5 py-4 text-right">
                   <Link
                     href={`/shop/${p.slug}`}
-                    className="inline-flex items-center gap-1 rounded-full border border-white/[0.1] px-3.5 py-1.5 text-xs font-semibold text-emerald-100/70 transition hover:border-emerald-400/25 hover:text-emerald-200"
+                    className="inline-flex items-center gap-1 rounded-full border border-white/[0.1] px-3.5 py-1.5 text-xs font-semibold text-sky-100/70 transition hover:border-sky-400/25 hover:text-sky-200"
                   >
                     View
                   </Link>

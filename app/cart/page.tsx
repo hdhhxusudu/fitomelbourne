@@ -15,7 +15,7 @@ export default function CartPage() {
           <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             Cart
           </h1>
-          <p className="mt-2 text-sm text-emerald-100/60">
+          <p className="mt-2 text-sm text-sky-100/60">
             Adjust quantities, then proceed to checkout when ready.
           </p>
         </div>
@@ -23,7 +23,7 @@ export default function CartPage() {
           <button
             type="button"
             onClick={() => clear()}
-            className="self-start inline-flex items-center gap-1.5 rounded-full border border-white/9 px-4 py-2 text-xs font-semibold text-emerald-100/65 transition hover:border-rose-400/30 hover:text-rose-300"
+            className="self-start inline-flex items-center gap-1.5 rounded-full border border-white/9 px-4 py-2 text-xs font-semibold text-sky-100/65 transition hover:border-rose-400/30 hover:text-rose-300"
           >
             <svg
               className="h-3.5 w-3.5"
@@ -49,7 +49,7 @@ export default function CartPage() {
         <div className="mt-12 flex flex-col items-center rounded-3xl border border-white/7 bg-white/2 py-20 text-center">
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl border border-white/8 bg-white/4">
             <svg
-              className="h-8 w-8 text-emerald-300/35"
+              className="h-8 w-8 text-sky-300/35"
               viewBox="0 0 24 24"
               fill="none"
               aria-hidden="true"
@@ -64,12 +64,12 @@ export default function CartPage() {
             </svg>
           </div>
           <h2 className="mt-5 text-lg font-semibold text-white">Your cart is empty</h2>
-          <p className="mt-2 max-w-xs text-sm text-emerald-100/55">
+          <p className="mt-2 max-w-xs text-sm text-sky-100/55">
             Browse the catalog and add items to get started.
           </p>
           <Link
             href="/shop"
-            className="mt-8 inline-flex h-10 items-center rounded-full bg-linear-to-r from-emerald-400 to-teal-400 px-6 text-sm font-semibold text-zinc-950 transition hover:brightness-110"
+            className="mt-8 inline-flex h-10 items-center rounded-full bg-linear-to-r from-sky-400 to-cyan-400 px-6 text-sm font-semibold text-zinc-950 transition hover:brightness-110"
           >
             Browse catalog
           </Link>
@@ -88,14 +88,14 @@ export default function CartPage() {
                 <div className="flex flex-col gap-1">
                   <Link
                     href={`/shop/${line.slug}`}
-                    className="text-base font-semibold text-white transition hover:text-emerald-200"
+                    className="text-base font-semibold text-white transition hover:text-sky-200"
                   >
                     {line.name}
                   </Link>
-                  <div className="font-mono text-xs text-emerald-100/45">{line.sku}</div>
-                  <div className="text-sm text-emerald-100/75">
+                  <div className="font-mono text-xs text-sky-100/45">{line.sku}</div>
+                  <div className="text-sm text-sky-100/75">
                     {formatUsd(line.priceCents)}{" "}
-                    <span className="text-emerald-100/45">each</span>
+                    <span className="text-sky-100/45">each</span>
                   </div>
                 </div>
 
@@ -110,7 +110,7 @@ export default function CartPage() {
                     <button
                       type="button"
                       onClick={() => setQty(line.slug, Math.max(1, line.qty - 1))}
-                      className="flex h-9 w-9 items-center justify-center text-emerald-100/55 transition hover:bg-white/6 hover:text-white"
+                      className="flex h-9 w-9 items-center justify-center text-sky-100/55 transition hover:bg-white/6 hover:text-white"
                       aria-label="Decrease quantity"
                     >
                       <svg
@@ -143,7 +143,7 @@ export default function CartPage() {
                     <button
                       type="button"
                       onClick={() => setQty(line.slug, Math.min(99, line.qty + 1))}
-                      className="flex h-9 w-9 items-center justify-center text-emerald-100/55 transition hover:bg-white/6 hover:text-white"
+                      className="flex h-9 w-9 items-center justify-center text-sky-100/55 transition hover:bg-white/6 hover:text-white"
                       aria-label="Increase quantity"
                     >
                       <svg
@@ -171,7 +171,7 @@ export default function CartPage() {
                   <button
                     type="button"
                     onClick={() => removeLine(line.slug)}
-                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/7 text-emerald-100/45 transition hover:border-rose-400/25 hover:text-rose-300"
+                    className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/7 text-sky-100/45 transition hover:border-rose-400/25 hover:text-rose-300"
                     aria-label={`Remove ${line.name} from cart`}
                   >
                     <svg
@@ -198,7 +198,7 @@ export default function CartPage() {
             className="rounded-2xl border border-white/8 bg-white/3 p-6"
             aria-label="Order summary"
           >
-            <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-emerald-200/65">
+            <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-sky-200/65">
               Order summary
             </div>
 
@@ -208,11 +208,11 @@ export default function CartPage() {
                   key={line.slug}
                   className="flex items-baseline justify-between gap-4 text-sm"
                 >
-                  <span className="truncate text-emerald-100/65">
+                  <span className="truncate text-sky-100/65">
                     {line.name}{" "}
-                    <span className="text-emerald-100/40">&times;{line.qty}</span>
+                    <span className="text-sky-100/40">&times;{line.qty}</span>
                   </span>
-                  <span className="shrink-0 text-emerald-50/85">
+                  <span className="shrink-0 text-sky-50/85">
                     {formatUsd(line.priceCents * line.qty)}
                   </span>
                 </li>
@@ -220,13 +220,13 @@ export default function CartPage() {
             </ul>
 
             <div className="mt-5 flex items-center justify-between border-t border-white/8 pt-5">
-              <span className="text-sm text-emerald-100/65">Subtotal</span>
+              <span className="text-sm text-sky-100/65">Subtotal</span>
               <span className="text-xl font-semibold text-white">
                 {formatUsd(subtotalCents)}
               </span>
             </div>
 
-            <p className="mt-3 text-xs leading-relaxed text-emerald-100/45">
+            <p className="mt-3 text-xs leading-relaxed text-sky-100/45">
               Taxes and shipping are finalized in the processor. Use Pay to open your
               hosted checkout.
             </p>
@@ -234,19 +234,19 @@ export default function CartPage() {
             <div className="mt-6 space-y-2.5">
               <Link
                 href="/pay"
-                className="flex w-full items-center justify-center rounded-xl bg-linear-to-r from-emerald-400 to-teal-400 py-3 text-sm font-semibold text-zinc-950 transition hover:brightness-110"
+                className="flex w-full items-center justify-center rounded-xl bg-linear-to-r from-sky-400 to-cyan-400 py-3 text-sm font-semibold text-zinc-950 transition hover:brightness-110"
               >
                 Proceed to payment
               </Link>
               <Link
                 href="/checkout"
-                className="flex w-full items-center justify-center rounded-xl border border-white/10 py-3 text-sm font-semibold text-emerald-100/75 transition hover:border-white/25 hover:text-white"
+                className="flex w-full items-center justify-center rounded-xl border border-white/10 py-3 text-sm font-semibold text-sky-100/75 transition hover:border-white/25 hover:text-white"
               >
                 Checkout notes
               </Link>
               <Link
                 href="/shop"
-                className="flex w-full items-center justify-center py-2 text-sm font-medium text-emerald-200/55 transition hover:text-emerald-200"
+                className="flex w-full items-center justify-center py-2 text-sm font-medium text-sky-200/55 transition hover:text-sky-200"
               >
                 Continue shopping
               </Link>

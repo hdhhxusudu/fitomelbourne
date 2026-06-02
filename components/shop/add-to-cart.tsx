@@ -35,7 +35,7 @@ export function AddToCart({ slug }: { slug: string }) {
           type="button"
           onClick={handleDecrement}
           disabled={qty <= 1}
-          className="flex h-11 w-11 items-center justify-center text-emerald-100/65 transition hover:bg-white/6 hover:text-white disabled:opacity-35"
+          className="flex h-11 w-11 items-center justify-center text-sky-100/65 transition hover:bg-white/6 hover:text-white disabled:opacity-35"
           aria-label="Decrease quantity"
         >
           <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -62,7 +62,7 @@ export function AddToCart({ slug }: { slug: string }) {
           type="button"
           onClick={handleIncrement}
           disabled={qty >= 99}
-          className="flex h-11 w-11 items-center justify-center text-emerald-100/65 transition hover:bg-white/6 hover:text-white disabled:opacity-35"
+          className="flex h-11 w-11 items-center justify-center text-sky-100/65 transition hover:bg-white/6 hover:text-white disabled:opacity-35"
           aria-label="Increase quantity"
         >
           <svg className="h-4 w-4" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -80,7 +80,7 @@ export function AddToCart({ slug }: { slug: string }) {
       <button
         type="button"
         onClick={handleAddToCart}
-        className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-linear-to-r from-emerald-400 to-teal-400 px-6 text-sm font-semibold text-zinc-950 shadow-[0_0_24px_-4px_rgba(52,211,153,0.38)] transition-all hover:brightness-110 hover:shadow-[0_0_32px_-2px_rgba(52,211,153,0.5)] sm:flex-none sm:px-8"
+        className="inline-flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-linear-to-r from-sky-400 to-cyan-400 px-6 text-sm font-semibold text-zinc-950 shadow-[0_0_24px_-4px_rgba(56,189,248,0.38)] transition-all hover:brightness-110 hover:shadow-[0_0_32px_-2px_rgba(56,189,248,0.5)] sm:flex-none sm:px-8"
         aria-live="polite"
       >
         {flash ? (

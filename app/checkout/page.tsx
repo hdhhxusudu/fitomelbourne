@@ -21,13 +21,13 @@ export default function CheckoutPage() {
 
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-300/60">
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sky-300/60">
         Checkout
       </p>
       <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
         Review &amp; pay
       </h1>
-      <p className="mt-4 text-sm leading-relaxed text-emerald-100/65">
+      <p className="mt-4 text-sm leading-relaxed text-sky-100/65">
         Your cart is stored in this browser until you connect a full server checkout. When
         a payment link is configured, use Pay to complete card payment on your processor.
       </p>
@@ -35,9 +35,9 @@ export default function CheckoutPage() {
       {/* Payment card */}
       <div className="mt-8 rounded-2xl border border-white/8 bg-white/3 p-6">
         <div className="flex items-center gap-3">
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-emerald-400/20 bg-emerald-400/9">
+          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-sky-400/20 bg-sky-400/9">
             <svg
-              className="h-4 w-4 text-emerald-300"
+              className="h-4 w-4 text-sky-300"
               viewBox="0 0 18 18"
               fill="none"
               aria-hidden="true"
@@ -56,7 +56,7 @@ export default function CheckoutPage() {
           </div>
           <div className="text-sm font-semibold text-white">Payment</div>
         </div>
-        <p className="mt-3 text-sm leading-relaxed text-emerald-100/65">
+        <p className="mt-3 text-sm leading-relaxed text-sky-100/65">
           {paymentUrl
             ? "Open the hosted checkout page to enter card details securely."
             : "Add NEXT_PUBLIC_STRIPE_PAYMENT_LINK (or NEXT_PUBLIC_PAYMENT_LINK) to enable the Pay button."}
@@ -64,19 +64,19 @@ export default function CheckoutPage() {
         <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
           <Link
             href="/pay"
-            className="inline-flex flex-1 items-center justify-center rounded-xl bg-linear-to-r from-emerald-400 to-teal-400 py-2.5 text-sm font-semibold text-zinc-950 transition hover:brightness-110"
+            className="inline-flex flex-1 items-center justify-center rounded-xl bg-linear-to-r from-sky-400 to-cyan-400 py-2.5 text-sm font-semibold text-zinc-950 transition hover:brightness-110"
           >
             Go to Pay
           </Link>
           <Link
             href="/cart"
-            className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/10 py-2.5 text-sm font-semibold text-emerald-100/75 transition hover:border-white/20 hover:text-white"
+            className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/10 py-2.5 text-sm font-semibold text-sky-100/75 transition hover:border-white/20 hover:text-white"
           >
             Review cart
           </Link>
           <Link
             href="/shop"
-            className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/10 py-2.5 text-sm font-semibold text-emerald-100/75 transition hover:border-white/20 hover:text-white"
+            className="inline-flex flex-1 items-center justify-center rounded-xl border border-white/10 py-2.5 text-sm font-semibold text-sky-100/75 transition hover:border-white/20 hover:text-white"
           >
             Keep shopping
           </Link>
@@ -88,9 +88,9 @@ export default function CheckoutPage() {
         <div className="text-sm font-semibold text-white">What to wire up next</div>
         <ul className="mt-4 space-y-3" role="list">
           {nextSteps.map((step) => (
-            <li key={step} className="flex items-start gap-3 text-sm text-emerald-100/65">
+            <li key={step} className="flex items-start gap-3 text-sm text-sky-100/65">
               <svg
-                className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400/55"
+                className="mt-0.5 h-4 w-4 shrink-0 text-sky-400/55"
                 viewBox="0 0 16 16"
                 fill="none"
                 aria-hidden="true"

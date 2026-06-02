@@ -15,20 +15,20 @@ export default function ProductsListPage() {
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-300/65">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-sky-300/65">
             All products
           </p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
             Product list
           </h1>
-          <p className="mt-3 max-w-xl text-base leading-relaxed text-emerald-100/65">
+          <p className="mt-3 max-w-xl text-base leading-relaxed text-sky-100/65">
             All SKUs in one table. Open a row for full handling notes and add-to-cart on
             the detail page.
           </p>
         </div>
         <Link
           href="/shop"
-          className="self-start inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-200/65 transition hover:text-emerald-200 focus-visible:ring-2 focus-visible:ring-emerald-400/55"
+          className="self-start inline-flex items-center gap-1.5 text-sm font-semibold text-sky-200/65 transition hover:text-sky-200 focus-visible:ring-2 focus-visible:ring-sky-400/55"
           aria-label="Switch to grid catalog view"
         >
           <svg
