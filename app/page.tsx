@@ -2,7 +2,14 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { products } from "@/lib/products"
 import { ProductCard } from "@/components/shop/product-card"
+import { VialIllustration } from "@/components/shop/vial-illustration"
+import { Badge } from "@/components/ui/badge"
+import { buttonVariants } from "@/components/ui/button"
+import { Container } from "@/components/ui/container"
+import { Eyebrow } from "@/components/ui/eyebrow"
+import { Section } from "@/components/ui/section"
 import { SITE_NAME } from "@/lib/site"
+import { cn } from "@/lib/cn"
 
 export const metadata: Metadata = {
   title: `${SITE_NAME} · Research-grade peptides`,
@@ -22,6 +29,7 @@ const trustBadges = [
 
 const whyUs = [
   {
+    num: "01",
     title: "Guaranteed High Quality",
     body: "Every batch undergoes rigorous identity testing and purity verification. We publish full certificates of analysis so your team can audit release criteria before use.",
     icon: (
@@ -36,11 +44,12 @@ const whyUs = [
     ),
   },
   {
+    num: "02",
     title: "Fast & Secure Shipping",
     body: "Orders are packed with cold-chain materials and dispatched promptly. Tracking is provided so you can plan receiving at your facility well in advance.",
     icon: (
       <svg className="h-7 w-7" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-        <rect x="2" y="9" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="1.8" />
+        <rect x="2" y="9" width="18" height="12" stroke="currentColor" strokeWidth="1.8" />
         <path
           d="M20 13l4 2v5h-4"
           stroke="currentColor"
@@ -55,6 +64,7 @@ const whyUs = [
     ),
   },
   {
+    num: "03",
     title: "Dedicated Customer Support",
     body: "Our team is available to answer technical questions about specifications, handling requirements, and documentation needs for your research program.",
     icon: (
@@ -75,13 +85,11 @@ const testimonials = [
   {
     name: "Dr. Sarah M.",
     role: "Research Biochemist",
-    rating: 5,
     text: "Exceptional purity levels and comprehensive documentation. The batch certificates made our compliance review straightforward. Will continue ordering for our lab's research protocols.",
   },
   {
     name: "Prof. James R.",
     role: "University Laboratory Director",
-    rating: 5,
     text: "Reliable supplier with consistent quality across multiple orders. The cold-chain packaging was professional and the peptides arrived in excellent condition every time.",
   },
 ] as const
@@ -89,331 +97,231 @@ const testimonials = [
 export default function Home() {
   return (
     <div className="flex-1">
-      {/* ── Hero ─────────────────────────────────────────── */}
       <section
-        className="relative overflow-hidden bg-white pb-0 pt-12 sm:pt-16 lg:pt-20"
+        className="relative overflow-hidden border-b-2 border-ink bg-paper pb-0 pt-16 lg:pt-24 grid-lines"
         aria-labelledby="home-hero-heading"
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            {/* Left: copy */}
-            <div className="relative z-10">
-              <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-blue-600">
-                {SITE_NAME}
-              </span>
+        <Container>
+          <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
+            <div className="relative z-10 lg:col-span-7">
+              <Eyebrow>{SITE_NAME}</Eyebrow>
 
               <h1
                 id="home-hero-heading"
-                className="mt-5 text-[2.5rem] font-bold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem]"
+                className="mt-5 font-display text-5xl font-extrabold leading-[0.95] tracking-[-0.03em] sm:text-6xl lg:text-7xl"
               >
-                Advanced<br />
-                <span className="text-blue-600">Scientific</span><br />
-                Research Supply
+                Advanced
+                <br />
+                <span className="text-accent">Research</span>
+                <br />
+                Supply
               </h1>
 
-              <p className="mt-5 max-w-lg text-base leading-relaxed text-slate-500 sm:text-lg">
-                Ultra-Pure, Lab-Tested Peptides trusted by researchers worldwide. Every
+              <p className="mt-6 max-w-lg text-base leading-relaxed text-muted sm:text-lg">
+                Ultra-pure, lab-tested peptides trusted by researchers worldwide. Every
                 product ships with batch documentation and independent purity verification.
               </p>
 
-              {/* Trust badges */}
-              <div className="mt-7 flex flex-wrap gap-2">
+              <div className="mt-8 flex flex-wrap gap-2 border-t-2 border-ink pt-6">
                 {trustBadges.map((b) => (
-                  <span
-                    key={b.label}
-                    className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-600 shadow-sm"
-                  >
-                    <svg
-                      className="h-3.5 w-3.5 text-blue-500"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M7 1l1.5 3.5 3.5.5-2.5 2.5.5 3.5L7 9.5 4 11l.5-3.5L2 5l3.5-.5L7 1z"
-                        stroke="currentColor"
-                        strokeWidth="1.2"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                  <Badge key={b.label} variant="outline">
                     {b.label}
-                  </span>
+                  </Badge>
                 ))}
               </div>
 
               <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-                <Link
-                  href="/shop"
-                  className="inline-flex h-12 items-center justify-center rounded-full bg-blue-600 px-8 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                >
+                <Link href="/shop" className={buttonVariants({ variant: "primary", size: "lg" })}>
                   Shop Now
                 </Link>
                 <Link
                   href="/products"
-                  className="inline-flex h-12 items-center justify-center rounded-full border border-slate-200 bg-white px-8 text-sm font-semibold text-slate-700 transition hover:border-blue-300 hover:text-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-400"
+                  className={buttonVariants({ variant: "secondary", size: "lg" })}
                 >
                   View Catalog
                 </Link>
               </div>
             </div>
 
-            {/* Right: floating vials */}
-            <div className="relative flex items-end justify-center pb-0 lg:justify-end">
-              {/* Blue radial blob */}
-              <div
-                className="absolute right-0 top-1/2 h-[380px] w-[380px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(186,230,253,0.55)_0%,rgba(219,234,254,0.35)_50%,transparent_72%)]"
-                aria-hidden="true"
-              />
-
-              {/* Three vial thumbnails */}
-              <div className="relative z-10 flex items-end gap-4 pb-4">
-                {featured.map((p, i) => (
-                  <Link
-                    key={p.slug}
-                    href={`/shop/${p.slug}`}
-                    className={`group block transition-all duration-500 hover:-translate-y-3 ${
-                      i === 1 ? "-translate-y-8" : ""
-                    }`}
-                  >
-                    <div className="w-24 overflow-hidden rounded-2xl bg-white shadow-xl shadow-blue-200/60 ring-1 ring-slate-100">
-                      {/* Cap */}
-                      <div className="mx-auto mt-3 h-3 w-7 rounded-t-sm bg-blue-500" />
-                      <div className="mx-auto h-1 w-9 bg-blue-400/50" />
-                      <div className="mx-auto h-3 w-5 bg-blue-100/60" />
-                      {/* Body */}
-                      <div className="mx-2.5 mb-3 rounded-b-2xl bg-gradient-to-b from-blue-50 to-blue-100 px-2 pb-3 pt-2">
-                        <div className="rounded-md bg-gradient-to-b from-blue-600 to-blue-700 px-1.5 py-2 text-center">
-                          <div className="text-[7px] font-bold uppercase tracking-widest text-blue-100">
-                            P4U
-                          </div>
-                          <div className="mt-0.5 text-[9px] font-black leading-tight text-white">
-                            {p.name}
-                          </div>
-                          <div className="mt-0.5 text-[7px] text-blue-200">
-                            {p.netWeightMg}mg
-                          </div>
-                        </div>
-                        <div className="mt-1.5 flex h-5 items-end justify-center gap-0.5">
-                          {[3, 5, 2, 6, 4].map((h, j) => (
-                            <div
-                              key={j}
-                              style={{ height: `${h * 3}px` }}
-                              className="w-0.5 rounded-full bg-blue-300"
-                            />
-                          ))}
-                        </div>
+            <div className="relative flex flex-col gap-4 lg:col-span-5">
+              {featured.map((p, i) => (
+                <Link
+                  key={p.slug}
+                  href={`/shop/${p.slug}`}
+                  className={cn(
+                    "animate-fade-up border-2 border-ink bg-surface transition-colors duration-200 hover:border-accent",
+                    i === 1 && "lg:ml-8",
+                  )}
+                  style={{ animationDelay: `${i * 60}ms` }}
+                >
+                  <div className="flex items-center gap-0">
+                    <VialIllustration
+                      name={p.name}
+                      netWeightMg={p.netWeightMg}
+                      purityLabel={p.purityLabel}
+                      size="sm"
+                      className="h-32 w-28 shrink-0 border-r-2 border-ink"
+                    />
+                    <div className="flex-1 p-4">
+                      <div className="font-mono text-[10px] uppercase tracking-wider text-accent">
+                        Featured
+                      </div>
+                      <div className="mt-1 font-display font-bold">{p.name}</div>
+                      <div className="mt-1 font-mono text-xs text-muted">
+                        {p.purityLabel} &middot; {p.netWeightMg}mg
                       </div>
                     </div>
-                  </Link>
-                ))}
-              </div>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
-        </div>
-
-        {/* Bottom wave */}
-        <div className="mt-10">
-          <svg
-            viewBox="0 0 1440 56"
-            fill="none"
-            preserveAspectRatio="none"
-            className="h-10 w-full text-slate-50"
-            aria-hidden="true"
-          >
-            <path d="M0,28 C360,56 1080,0 1440,28 L1440,56 L0,56 Z" fill="currentColor" />
-          </svg>
-        </div>
+        </Container>
       </section>
 
-      {/* ── Best-Selling Products ─────────────────────────── */}
-      <section
-        className="bg-slate-50 py-16 sm:py-20"
-        aria-labelledby="bestsellers-heading"
-      >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-500">
-                Catalog
-              </p>
-              <h2
-                id="bestsellers-heading"
-                className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl"
-              >
-                Best-Selling Products
-              </h2>
-            </div>
+      <Section eyebrow="Catalog" title="Best-Selling Products" titleId="bestsellers-heading">
+        <Container>
+          <div className="mb-10 flex items-end justify-between gap-4">
+            <div />
             <Link
               href="/shop"
-              className="self-start text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+              className="font-mono text-xs uppercase tracking-wider text-accent link-underline"
             >
               View All &rarr;
             </Link>
           </div>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {featured.map((p) => (
-              <ProductCard key={p.slug} product={p} />
+          <div className="grid border-2 border-ink sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((p, i) => (
+              <div
+                key={p.slug}
+                className="animate-fade-up border-b-2 border-ink sm:[&:nth-child(odd)]:border-r-2 lg:[&:not(:nth-child(3n))]:border-r-2"
+                style={{ animationDelay: `${i * 60}ms` }}
+              >
+                <ProductCard product={p} />
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* ── Why Shop With Us ──────────────────────────────── */}
-      <section className="relative py-24 sm:py-28" aria-labelledby="why-heading">
-        {/* Blue wave bg */}
-        <div
-          className="absolute inset-0 bg-gradient-to-br from-sky-100 via-blue-50 to-blue-100"
-          aria-hidden="true"
-        />
-        {/* Top wave cutout */}
-        <svg
-          viewBox="0 0 1440 72"
-          fill="none"
-          preserveAspectRatio="none"
-          className="absolute left-0 top-0 h-14 w-full text-slate-50"
-          aria-hidden="true"
-        >
-          <path d="M0,0 C480,72 960,0 1440,48 L1440,0 Z" fill="currentColor" />
-        </svg>
-        {/* Bottom wave cutout */}
-        <svg
-          viewBox="0 0 1440 72"
-          fill="none"
-          preserveAspectRatio="none"
-          className="absolute bottom-0 left-0 h-14 w-full text-white"
-          aria-hidden="true"
-        >
-          <path d="M0,48 C480,0 960,72 1440,24 L1440,72 L0,72 Z" fill="currentColor" />
-        </svg>
-
-        <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+      <Section variant="surface" gridLines aria-labelledby="why-heading">
+        <Container>
           <div className="mb-12 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-600">
-              Benefits
-            </p>
+            <Eyebrow>Benefits</Eyebrow>
             <h2
               id="why-heading"
-              className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl"
+              className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl"
             >
               Why Shop With Us?
             </h2>
           </div>
 
-          <dl className="grid gap-6 sm:grid-cols-3">
+          <dl className="grid gap-0 border-2 border-ink sm:grid-cols-3">
             {whyUs.map((item) => (
               <div
                 key={item.title}
-                className="flex flex-col items-center rounded-2xl bg-white/80 p-7 text-center shadow-sm backdrop-blur-sm"
+                className="flex flex-col border-b-2 border-ink p-8 sm:border-b-0 sm:[&:not(:last-child)]:border-r-2"
               >
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-md shadow-blue-600/20">
-                  {item.icon}
+                <div className="flex items-start justify-between gap-4">
+                  <span className="font-mono text-sm text-accent">{item.num}</span>
+                  <div className="flex h-14 w-14 items-center justify-center border-2 border-ink text-ink">
+                    {item.icon}
+                  </div>
                 </div>
-                <dt className="mt-5 text-base font-bold text-slate-900">{item.title}</dt>
-                <dd className="mt-3 text-sm leading-relaxed text-slate-500">{item.body}</dd>
+                <dt className="mt-6 font-display text-lg font-bold">{item.title}</dt>
+                <dd className="mt-3 text-sm leading-relaxed text-muted">{item.body}</dd>
               </div>
             ))}
           </dl>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* ── Premium Peptides ─────────────────────────────── */}
-      <section
-        className="bg-white py-16 sm:py-20"
-        aria-labelledby="premium-heading"
-      >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-500">
-                Premium Range
-              </p>
-              <h2
-                id="premium-heading"
-                className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl"
-              >
-                Premium Peptides
-              </h2>
-            </div>
+      <Section eyebrow="Premium Range" title="Premium Peptides" titleId="premium-heading">
+        <Container>
+          <div className="mb-10 flex items-end justify-end">
             <Link
               href="/shop"
-              className="self-start text-sm font-semibold text-blue-600 transition hover:text-blue-700"
+              className="font-mono text-xs uppercase tracking-wider text-accent link-underline"
             >
               View All &rarr;
             </Link>
           </div>
-
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {premium.map((p) => (
-              <ProductCard key={p.slug} product={p} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Testimonials ─────────────────────────────────── */}
-      <section
-        className="bg-slate-50 py-16 sm:py-20"
-        aria-labelledby="testimonials-heading"
-      >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="mb-10 text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-blue-500">
-              Reviews
-            </p>
-            <h2
-              id="testimonials-heading"
-              className="mt-2 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl"
-            >
-              What Our Customers Are Saying
-            </h2>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2">
-            {testimonials.map((t) => (
+          <div className="grid border-2 border-ink sm:grid-cols-2 lg:grid-cols-3">
+            {premium.map((p, i) => (
               <div
-                key={t.name}
-                className="flex flex-col rounded-2xl bg-white p-6 shadow-sm ring-1 ring-slate-100"
+                key={p.slug}
+                className="animate-fade-up border-b-2 border-ink sm:[&:nth-child(odd)]:border-r-2 lg:[&:not(:nth-child(3n))]:border-r-2"
+                style={{ animationDelay: `${i * 60}ms` }}
               >
-                {/* Stars */}
-                <div className="flex gap-0.5">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <svg
-                      key={i}
-                      className="h-4 w-4 text-amber-400"
-                      viewBox="0 0 16 16"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
-                      <path d="M8 1l1.5 4h4l-3.3 2.4 1.3 4L8 9l-3.5 2.4 1.3-4L2.5 5h4L8 1z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-slate-600">
-                  &ldquo;{t.text}&rdquo;
-                </p>
-                <div className="mt-6 flex items-center gap-3 border-t border-slate-50 pt-5">
-                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-400 to-blue-600 text-xs font-bold text-white">
-                    {t.name[0]}
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold text-slate-900">{t.name}</div>
-                    <div className="text-xs text-slate-400">{t.role}</div>
-                  </div>
-                </div>
+                <ProductCard product={p} />
               </div>
             ))}
           </div>
+        </Container>
+      </Section>
 
-          <div className="mt-10 text-center">
-            <Link
-              href="/shop"
-              className="inline-flex h-11 items-center justify-center rounded-full bg-blue-600 px-8 text-sm font-semibold text-white shadow-md shadow-blue-600/25 transition hover:bg-blue-700"
+      <Section variant="surface" aria-labelledby="testimonials-heading">
+        <Container>
+          <div className="mb-12 text-center">
+            <Eyebrow>Reviews</Eyebrow>
+            <h2
+              id="testimonials-heading"
+              className="mt-3 font-display text-3xl font-bold tracking-tight sm:text-4xl"
             >
+              What Researchers Say
+            </h2>
+          </div>
+
+          <div className="grid gap-0 border-2 border-ink sm:grid-cols-2">
+            {testimonials.map((t) => (
+              <blockquote
+                key={t.name}
+                className="flex flex-col border-b-2 border-ink p-8 sm:border-b-0 sm:[&:first-child]:border-r-2"
+              >
+                <span
+                  className="font-display text-6xl leading-none text-accent"
+                  aria-hidden="true"
+                >
+                  &ldquo;
+                </span>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{t.text}</p>
+                <footer className="mt-8 border-t-2 border-ink pt-6">
+                  <div className="font-semibold">{t.name}</div>
+                  <div className="mt-1 font-mono text-[11px] uppercase tracking-wider text-muted">
+                    {t.role}
+                  </div>
+                  <div className="mt-2 font-mono text-[10px] uppercase tracking-wider text-accent">
+                    Verified researcher
+                  </div>
+                </footer>
+              </blockquote>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <Link href="/shop" className={buttonVariants({ variant: "primary", size: "lg" })}>
               Shop the Catalog
             </Link>
           </div>
-        </div>
+        </Container>
+      </Section>
+
+      <section className="border-t-2 border-ink bg-ink py-20 lg:py-28">
+        <Container className="text-center">
+          <Eyebrow className="text-accent">Get started</Eyebrow>
+          <h2 className="mt-4 font-display text-3xl font-bold text-paper sm:text-4xl lg:text-5xl">
+            Ready to equip your lab?
+          </h2>
+          <p className="mx-auto mt-4 max-w-lg text-base text-paper/60">
+            Browse our full catalog of research-grade peptides with documented purity and batch traceability.
+          </p>
+          <Link
+            href="/shop"
+            className={cn(buttonVariants({ variant: "primary", size: "lg" }), "mt-10")}
+          >
+            Explore Catalog
+          </Link>
+        </Container>
       </section>
     </div>
   )

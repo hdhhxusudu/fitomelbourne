@@ -2,6 +2,13 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { getPaymentLinkUrl } from "@/lib/payments"
 import { SITE_NAME } from "@/lib/site"
+import { buttonVariants } from "@/components/ui/button"
+import { Card } from "@/components/ui/card"
+import { CheckoutProgress } from "@/components/ui/checkout-progress"
+import { Container } from "@/components/ui/container"
+import { EmptyState } from "@/components/ui/empty-state"
+import { Eyebrow } from "@/components/ui/eyebrow"
+import { cn } from "@/lib/cn"
 
 export const metadata: Metadata = {
   title: "Pay",
@@ -13,25 +20,24 @@ export default function PayPage() {
   const paymentUrl = getPaymentLinkUrl()
 
   return (
-    <div className="bg-white">
-      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-500">
-          Payment
-        </p>
-        <h1 className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+    <div className="bg-paper">
+      <Container narrow className="py-16 sm:py-20">
+        <CheckoutProgress current="pay" className="mb-10" />
+
+        <Eyebrow>Payment</Eyebrow>
+        <h1 className="mt-3 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">
           Secure checkout
         </h1>
-        <p className="mt-4 text-sm leading-relaxed text-slate-500">
+        <p className="mt-4 text-sm leading-relaxed text-muted">
           Complete your card payment through our hosted checkout. After paying, keep your
           receipt email and reference your order details.
         </p>
 
         {paymentUrl ? (
-          /* ——— Payment link configured ——— */
-          <div className="mt-10 rounded-3xl border border-blue-100 bg-gradient-to-br from-blue-50 to-sky-50 p-8 text-center shadow-sm">
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600 shadow-md shadow-blue-600/25">
+          <Card hardShadow padding="lg" className="mt-10 text-center">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center border-2 border-ink bg-accent text-surface">
               <svg
-                className="h-6 w-6 text-white"
+                className="h-6 w-6"
                 viewBox="0 0 24 24"
                 fill="none"
                 aria-hidden="true"
@@ -45,28 +51,23 @@ export default function PayPage() {
                 />
               </svg>
             </div>
-            <p className="mt-5 text-sm font-medium text-slate-600">
+            <p className="mt-5 text-sm font-medium text-muted">
               You will leave this site to pay on our processor. The link opens in a new tab.
             </p>
             <a
               href={paymentUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex h-12 items-center justify-center rounded-full bg-blue-600 px-8 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-600/30"
+              className={cn(buttonVariants({ variant: "primary", size: "lg" }), "mt-6")}
             >
               Open secure payment page
             </a>
-          </div>
+          </Card>
         ) : (
-          /* ——— Not configured ——— */
-          <div className="mt-10 rounded-2xl border border-amber-200 bg-amber-50 p-6">
-            <div className="flex items-center gap-3">
-              <svg
-                className="h-5 w-5 shrink-0 text-amber-500"
-                viewBox="0 0 20 20"
-                fill="none"
-                aria-hidden="true"
-              >
+          <EmptyState
+            className="mt-10"
+            icon={
+              <svg className="h-8 w-8" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                 <path
                   d="M10 2L18 16H2L10 2z"
                   stroke="currentColor"
@@ -80,46 +81,34 @@ export default function PayPage() {
                   strokeLinecap="round"
                 />
               </svg>
-              <p className="text-sm font-semibold text-amber-800">
-                Payment link not configured
-              </p>
-            </div>
-            <p className="mt-3 text-sm leading-relaxed text-amber-700">
-              Add a Stripe Payment Link (or any HTTPS checkout URL) to your environment:
-            </p>
-            <pre className="mt-4 overflow-x-auto rounded-xl border border-amber-100 bg-white p-4 text-left text-xs text-slate-700">
-              NEXT_PUBLIC_STRIPE_PAYMENT_LINK=https://buy.stripe.com/your_link_here
-            </pre>
-            <p className="mt-3 text-xs text-amber-600">
-              Alternatively set{" "}
-              <code className="rounded-md border border-amber-200 bg-white px-1.5 py-0.5 font-mono">
-                NEXT_PUBLIC_PAYMENT_LINK
-              </code>{" "}
-              to the same kind of URL.
-            </p>
-          </div>
+            }
+            title="Payment link not configured"
+            description="Add NEXT_PUBLIC_STRIPE_PAYMENT_LINK or NEXT_PUBLIC_PAYMENT_LINK to your environment to enable secure checkout."
+            actionLabel="Back to cart"
+            actionHref="/cart"
+          />
         )}
 
         <div className="mt-8 flex flex-col gap-2.5 sm:flex-row">
           <Link
             href="/cart"
-            className="inline-flex flex-1 items-center justify-center rounded-xl border border-slate-200 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-blue-300 hover:text-blue-600"
+            className={cn(buttonVariants({ variant: "secondary", size: "md" }), "flex-1")}
           >
             Back to cart
           </Link>
           <Link
             href="/products"
-            className="inline-flex flex-1 items-center justify-center rounded-xl border border-slate-200 py-2.5 text-sm font-semibold text-slate-600 transition hover:border-blue-300 hover:text-blue-600"
+            className={cn(buttonVariants({ variant: "ghost", size: "md" }), "flex-1")}
           >
             Product list
           </Link>
         </div>
 
-        <p className="mt-8 text-xs leading-relaxed text-slate-400">
+        <p className="mt-8 font-mono text-xs leading-relaxed text-muted">
           {SITE_NAME} does not store card numbers on this site when you use a hosted payment
           link from your processor.
         </p>
-      </div>
+      </Container>
     </div>
   )
 }
