@@ -47,12 +47,29 @@ For validation without publishing:
 npm run deploy:dry-run
 ```
 
-## Required Cloudflare Settings
+## Required Cloudflare Workers Builds settings
+
+In **Workers & Pages → your worker → Settings → Builds**, use **one** of these:
+
+### Option A (recommended)
+
+- **Build command:** `npx opennextjs-cloudflare build`
+- **Deploy command:** `npx opennextjs-cloudflare deploy`
+- **Non-production branch deploy command:** `npx opennextjs-cloudflare upload`
+
+### Option B (default — matches current Cloudflare Workers Builds)
+
+Cloudflare can keep:
+
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler deploy`
+
+The `build` script runs Next.js in standalone mode, then bundles OpenNext output to `.open-next/worker.js`.
+
+Also set:
 
 - Project type: Workers
-- Worker name: `peptides`
-- Build command: `npm run cf:build`
-- Deploy command: `npm run deploy`
+- Worker name: `fitomelbourne` *(must match `name` in `wrangler.jsonc`)*
 - Wrangler config: `wrangler.jsonc`
 - Required production variable: `NEXT_PUBLIC_SITE_URL`
 

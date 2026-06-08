@@ -10,10 +10,11 @@ This repository is **Peptides only**. It must stay isolated from PetrolPricesNea
 ## Hosting (required)
 
 - **Primary:** Cloudflare Workers via OpenNext (`@opennextjs/cloudflare`)
-- **Config:** `wrangler.jsonc` (worker name: `peptides`)
-- **Build:** `npm run cf:build` → produces `.open-next/`
-- **Deploy:** `npm run deploy` → `opennextjs-cloudflare build` + `wrangler deploy`
+- **Config:** `wrangler.jsonc` (worker name: `fitomelbourne` — must match Cloudflare Workers project)
+- **Build:** `npm run cf:build` → produces `.open-next/` (local; includes Windows-safe clean)
+- **Deploy:** `npm run deploy` → `opennextjs-cloudflare build` + `opennextjs-cloudflare deploy`
 - **Local dev:** `npm run dev` (Next.js dev server)
+- **Cloudflare CI:** build must include `opennextjs-cloudflare build` — see README
 
 ## Never add or reference
 
