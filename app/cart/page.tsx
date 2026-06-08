@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/container"
 import { EmptyState } from "@/components/ui/empty-state"
 import { Eyebrow } from "@/components/ui/eyebrow"
 import { QuantityStepper } from "@/components/ui/quantity-stepper"
-import { formatUsd } from "@/lib/money"
+import { formatAud } from "@/lib/money"
 import { cn } from "@/lib/cn"
 
 export default function CartPage() {
@@ -91,7 +91,7 @@ export default function CartPage() {
                     </Link>
                     <div className="font-mono text-xs text-muted">{line.sku}</div>
                     <div className="font-mono text-sm text-muted">
-                      {formatUsd(line.priceCents)}{" "}
+                      {formatAud(line.priceCents)}{" "}
                       <span className="text-muted/60">each</span>
                     </div>
                   </div>
@@ -105,7 +105,7 @@ export default function CartPage() {
                     />
 
                     <div className="min-w-[76px] text-right font-mono text-sm font-bold tabular-nums">
-                      {formatUsd(line.priceCents * line.qty)}
+                      {formatAud(line.priceCents * line.qty)}
                     </div>
 
                     <button
@@ -145,7 +145,7 @@ export default function CartPage() {
                         <span className="font-mono text-muted/60">&times;{line.qty}</span>
                       </span>
                       <span className="shrink-0 font-mono font-medium tabular-nums">
-                        {formatUsd(line.priceCents * line.qty)}
+                        {formatAud(line.priceCents * line.qty)}
                       </span>
                     </li>
                   ))}
@@ -156,7 +156,7 @@ export default function CartPage() {
                     Subtotal
                   </span>
                   <span className="font-mono text-xl font-bold tabular-nums">
-                    {formatUsd(subtotalCents)}
+                    {formatAud(subtotalCents)}
                   </span>
                 </div>
 

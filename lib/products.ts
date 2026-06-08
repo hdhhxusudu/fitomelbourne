@@ -12,6 +12,7 @@ export const products: Product[] = [
     purityLabel: "≥99%",
     netWeightMg: 5,
     sku: "P4L-BPC-5",
+    image: "/products/bpc-157.png",
   },
   {
     slug: "tb-500",
@@ -24,6 +25,7 @@ export const products: Product[] = [
     purityLabel: "≥98%",
     netWeightMg: 5,
     sku: "P4L-TB5-5",
+    image: "/products/tb-500.png",
   },
   {
     slug: "ipamorelin",
@@ -36,6 +38,46 @@ export const products: Product[] = [
     purityLabel: "≥99%",
     netWeightMg: 5,
     sku: "P4L-IPA-5",
+    image: "/products/ipamorelin.png",
+  },
+  {
+    slug: "cjc-1295-no-dac",
+    name: "CJC-1295 (No DAC)",
+    shortDescription: "GHRH analog for growth hormone secretagogue receptor research.",
+    description:
+      "Modified GHRH(1-29) sequence without drug affinity complex for controlled half-life studies. " +
+      "Lyophilized presentation with verified identity and purity on certificate of analysis.",
+    priceCents: 6499,
+    purityLabel: "≥99%",
+    netWeightMg: 5,
+    sku: "P4L-CJC-5",
+    image: "/products/cjc-1295-no-dac.png",
+  },
+  {
+    slug: "ghrp-6",
+    name: "GHRP-6",
+    shortDescription: "Growth hormone releasing hexapeptide for secretagogue pathway studies.",
+    description:
+      "Synthetic hexapeptide growth hormone secretagogue for receptor binding and signaling assays. " +
+      "Lyophilized presentation with documented purity and identity testing on release.",
+    priceCents: 5999,
+    purityLabel: "≥99%",
+    netWeightMg: 5,
+    sku: "P4L-GHRP6-5",
+    image: "/products/ghrp-6.png",
+  },
+  {
+    slug: "ghrp-2",
+    name: "GHRP-2",
+    shortDescription: "Growth hormone releasing dipeptide for secretagogue receptor research.",
+    description:
+      "Synthetic growth hormone releasing peptide for binding and signaling pathway studies. " +
+      "Lyophilized presentation with verified identity and purity on certificate of analysis.",
+    priceCents: 5999,
+    purityLabel: "≥99%",
+    netWeightMg: 5,
+    sku: "P4L-GHRP2-5",
+    image: "/products/ghrp-2.png",
   },
   {
     slug: "sermorelin",
@@ -60,6 +102,7 @@ export const products: Product[] = [
     purityLabel: "≥98%",
     netWeightMg: 10,
     sku: "P4L-MT2-10",
+    image: "/products/melanotan-ii.png",
   },
   {
     slug: "pt-141",
@@ -72,6 +115,46 @@ export const products: Product[] = [
     purityLabel: "≥98%",
     netWeightMg: 10,
     sku: "P4L-PT141-10",
+    image: "/products/pt-141.png",
+  },
+  {
+    slug: "aod-9604",
+    name: "AOD-9604",
+    shortDescription: "Modified growth hormone fragment for metabolic pathway research.",
+    description:
+      "Synthetic peptide fragment derived from human growth hormone for laboratory binding studies. " +
+      "Lyophilized presentation with documented identity and purity on certificate of analysis.",
+    priceCents: 5699,
+    purityLabel: "≥99%",
+    netWeightMg: 5,
+    sku: "P4L-AOD-5",
+    image: "/products/aod-9604.png",
+  },
+  {
+    slug: "semaglutide",
+    name: "Semaglutide",
+    shortDescription: "GLP-1 receptor agonist analog for metabolic pathway research.",
+    description:
+      "Synthetic glucagon-like peptide-1 analog for receptor binding and signaling studies. " +
+      "Lyophilized presentation with verified identity and purity on certificate of analysis.",
+    priceCents: 7999,
+    purityLabel: "≥99%",
+    netWeightMg: 5,
+    sku: "P4L-SEMA-5",
+    image: "/products/semaglutide.png",
+  },
+  {
+    slug: "tirzepatide",
+    name: "Tirzepatide",
+    shortDescription: "Dual GIP/GLP-1 receptor agonist for metabolic pathway research.",
+    description:
+      "Synthetic dual incretin receptor agonist for binding and signaling studies in qualified laboratories. " +
+      "Lyophilized presentation with verified identity and purity on certificate of analysis.",
+    priceCents: 8499,
+    purityLabel: "≥99%",
+    netWeightMg: 5,
+    sku: "P4L-TIRZ-5",
+    image: "/products/tirzepatide.png",
   },
 ];
 

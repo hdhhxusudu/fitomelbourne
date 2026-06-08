@@ -2,12 +2,12 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 import { AddToCart } from "@/components/shop/add-to-cart"
-import { VialIllustration } from "@/components/shop/vial-illustration"
+import { ProductImage } from "@/components/shop/product-image"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Container } from "@/components/ui/container"
-import { formatUsd } from "@/lib/money"
+import { formatAud } from "@/lib/money"
 import { getAllProductSlugs, getProductBySlug } from "@/lib/products"
 import { cn } from "@/lib/cn"
 
@@ -59,12 +59,7 @@ export default async function ProductPage({ params }: Props) {
         <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:items-start xl:gap-14">
           <div className="lg:col-span-7">
             <div className="border-2 border-ink bg-surface">
-              <VialIllustration
-                name={product.name}
-                netWeightMg={product.netWeightMg}
-                purityLabel={product.purityLabel}
-                size="lg"
-              />
+              <ProductImage product={product} size="lg" priority />
 
               <div className="border-t-2 border-ink p-8">
                 <div className="font-mono text-[11px] uppercase tracking-[0.28em] text-accent">
@@ -107,7 +102,7 @@ export default async function ProductPage({ params }: Props) {
                 Price
               </div>
               <div className="mt-2 font-mono text-4xl font-bold tabular-nums">
-                {formatUsd(product.priceCents)}
+                {formatAud(product.priceCents)}
               </div>
               <div className="mt-1 font-mono text-xs text-muted">
                 Per unit &middot; excluding shipping

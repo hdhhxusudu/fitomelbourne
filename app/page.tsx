@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { products } from "@/lib/products"
 import { ProductCard } from "@/components/shop/product-card"
-import { VialIllustration } from "@/components/shop/vial-illustration"
+import { ProductImage } from "@/components/shop/product-image"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Container } from "@/components/ui/container"
@@ -155,10 +155,8 @@ export default function Home() {
                   style={{ animationDelay: `${i * 60}ms` }}
                 >
                   <div className="flex items-center gap-0">
-                    <VialIllustration
-                      name={p.name}
-                      netWeightMg={p.netWeightMg}
-                      purityLabel={p.purityLabel}
+                    <ProductImage
+                      product={p}
                       size="sm"
                       className="h-32 w-28 shrink-0 border-r-2 border-ink"
                     />

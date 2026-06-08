@@ -1,6 +1,6 @@
 import Link from "next/link"
 import type { Product } from "@/lib/types"
-import { formatUsd } from "@/lib/money"
+import { formatAud } from "@/lib/money"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import {
@@ -46,7 +46,7 @@ export function ProductList({ items }: { items: Product[] }) {
               {p.netWeightMg}&thinsp;mg
             </td>
             <td className="px-5 py-4 text-right font-mono font-bold tabular-nums">
-              {formatUsd(p.priceCents)}
+              {formatAud(p.priceCents)}
             </td>
             <td className="px-5 py-4 text-right">
               <Link

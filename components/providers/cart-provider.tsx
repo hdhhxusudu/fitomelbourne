@@ -31,15 +31,16 @@ const CartContext = createContext<CartContextValue | null>(null);
 
 const STORAGE_KEY = "peptides4lifr-cart-v1";
 const CART_EVENT = "peptides4lifr-cart-change";
+const EMPTY_CART_LINES: CartStoredLine[] = [];
 
 function readStored(): CartStoredLine[] {
-  if (typeof window === "undefined") return [];
+  if (typeof window === "undefined") return EMPTY_CART_LINES;
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    if (!raw) return [];
+    if (!raw) return EMPTY_CART_LINES;
     const parsed = JSON.parse(raw) as unknown;
-    if (!Array.isArray(parsed)) return [];
-    return parsed
+    if (!Array.isArray(parsed)) return EMPTY_CART_LINES;
+    const lines = parsed
       .map((row) => {
         if (typeof row !== "object" || row === null) return null;
         const slug = (row as { slug?: unknown }).slug;
@@ -49,8 +50,9 @@ function readStored(): CartStoredLine[] {
         return { slug, qty: Math.floor(qty) };
       })
       .filter((x): x is CartStoredLine => x !== null);
+    return lines.length === 0 ? EMPTY_CART_LINES : lines;
   } catch {
-    return [];
+    return EMPTY_CART_LINES;
   }
 }
 
@@ -69,7 +71,7 @@ function subscribe(onStoreChange: () => void) {
 }
 
 function getServerCartSnapshot(): CartStoredLine[] {
-  return [];
+  return EMPTY_CART_LINES;
 }
 
 function persistLines(next: CartStoredLine[]) {

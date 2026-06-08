@@ -7,6 +7,7 @@ export type Product = {
   purityLabel: string;
   netWeightMg: number;
   sku: string;
+  image?: string;
 };
 
 export type CartStoredLine = {

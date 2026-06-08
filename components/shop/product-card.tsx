@@ -1,9 +1,9 @@
 import Link from "next/link"
 import type { Product } from "@/lib/types"
-import { formatUsd } from "@/lib/money"
+import { formatAud } from "@/lib/money"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
-import { VialIllustration } from "@/components/shop/vial-illustration"
+import { ProductImage } from "@/components/shop/product-image"
 import { cn } from "@/lib/cn"
 
 export function ProductCard({ product }: { product: Product }) {
@@ -15,10 +15,8 @@ export function ProductCard({ product }: { product: Product }) {
         tabIndex={0}
         aria-label={`View details for ${product.name}`}
       >
-        <VialIllustration
-          name={product.name}
-          netWeightMg={product.netWeightMg}
-          purityLabel={product.purityLabel}
+        <ProductImage
+          product={product}
           size="md"
           className="transition-colors duration-200 group-hover:bg-paper"
         />
@@ -43,7 +41,7 @@ export function ProductCard({ product }: { product: Product }) {
 
         <div className="mt-auto flex items-center justify-between gap-3 border-t-2 border-ink pt-4">
           <div className="font-mono text-xl font-semibold tabular-nums">
-            {formatUsd(product.priceCents)}
+            {formatAud(product.priceCents)}
           </div>
           <Link
             href={`/shop/${product.slug}`}
