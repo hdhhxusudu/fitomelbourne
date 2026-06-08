@@ -1,0 +1,2 @@
+# Wrangler local secrets (copy to .dev.vars — never commit)
+NEXTJS_ENV=development

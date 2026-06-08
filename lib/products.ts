@@ -11,7 +11,7 @@ export const products: Product[] = [
     priceCents: 4999,
     purityLabel: "≥99%",
     netWeightMg: 5,
-    sku: "P4L-BPC-5",
+    sku: "P4U-BPC-5",
     image: "/products/bpc-157.png",
   },
   {
@@ -24,7 +24,7 @@ export const products: Product[] = [
     priceCents: 5499,
     purityLabel: "≥98%",
     netWeightMg: 5,
-    sku: "P4L-TB5-5",
+    sku: "P4U-TB5-5",
     image: "/products/tb-500.png",
   },
   {
@@ -37,7 +37,7 @@ export const products: Product[] = [
     priceCents: 6299,
     purityLabel: "≥99%",
     netWeightMg: 5,
-    sku: "P4L-IPA-5",
+    sku: "P4U-IPA-5",
     image: "/products/ipamorelin.png",
   },
   {
@@ -50,7 +50,7 @@ export const products: Product[] = [
     priceCents: 6499,
     purityLabel: "≥99%",
     netWeightMg: 5,
-    sku: "P4L-CJC-5",
+    sku: "P4U-CJC-5",
     image: "/products/cjc-1295-no-dac.png",
   },
   {
@@ -63,7 +63,7 @@ export const products: Product[] = [
     priceCents: 5999,
     purityLabel: "≥99%",
     netWeightMg: 5,
-    sku: "P4L-GHRP6-5",
+    sku: "P4U-GHRP6-5",
     image: "/products/ghrp-6.png",
   },
   {
@@ -76,7 +76,7 @@ export const products: Product[] = [
     priceCents: 5999,
     purityLabel: "≥99%",
     netWeightMg: 5,
-    sku: "P4L-GHRP2-5",
+    sku: "P4U-GHRP2-5",
     image: "/products/ghrp-2.png",
   },
   {
@@ -89,7 +89,7 @@ export const products: Product[] = [
     priceCents: 5899,
     purityLabel: "≥98%",
     netWeightMg: 5,
-    sku: "P4L-SER-5",
+    sku: "P4U-SER-5",
   },
   {
     slug: "melanotan-ii",
@@ -101,7 +101,7 @@ export const products: Product[] = [
     priceCents: 4499,
     purityLabel: "≥98%",
     netWeightMg: 10,
-    sku: "P4L-MT2-10",
+    sku: "P4U-MT2-10",
     image: "/products/melanotan-ii.png",
   },
   {
@@ -114,7 +114,7 @@ export const products: Product[] = [
     priceCents: 5299,
     purityLabel: "≥98%",
     netWeightMg: 10,
-    sku: "P4L-PT141-10",
+    sku: "P4U-PT141-10",
     image: "/products/pt-141.png",
   },
   {
@@ -127,7 +127,7 @@ export const products: Product[] = [
     priceCents: 5699,
     purityLabel: "≥99%",
     netWeightMg: 5,
-    sku: "P4L-AOD-5",
+    sku: "P4U-AOD-5",
     image: "/products/aod-9604.png",
   },
   {
@@ -140,7 +140,7 @@ export const products: Product[] = [
     priceCents: 7999,
     purityLabel: "≥99%",
     netWeightMg: 5,
-    sku: "P4L-SEMA-5",
+    sku: "P4U-SEMA-5",
     image: "/products/semaglutide.png",
   },
   {
@@ -153,7 +153,7 @@ export const products: Product[] = [
     priceCents: 8499,
     purityLabel: "≥99%",
     netWeightMg: 5,
-    sku: "P4L-TIRZ-5",
+    sku: "P4U-TIRZ-5",
     image: "/products/tirzepatide.png",
   },
 ];

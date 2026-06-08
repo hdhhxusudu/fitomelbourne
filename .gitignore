@@ -30,9 +30,13 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+.cursor/debug-*.log
 
-# env files (can opt-in for committing if needed)
-.env*
+# env files (never commit secrets)
+.env
+.env.local
+.env.*.local
+!.env.example
 
 # vercel (not used — Cloudflare Workers only)
 .vercel
@@ -40,8 +44,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+cloudflare-env.d.ts
 
-# wrangler files
+# wrangler
 .wrangler
-.dev.vars*
+.dev.vars
 !.dev.vars.example

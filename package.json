@@ -7,6 +7,7 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "eslint",
+    "clean": "node -e \"const fs=require('fs');for (const d of ['.next','.open-next','.wrangler']) fs.rmSync(d,{recursive:true,force:true})\"",
     "cf:build": "opennextjs-cloudflare build",
     "preview": "npm run cf:build && wrangler dev",
     "deploy": "npm run cf:build && wrangler deploy",

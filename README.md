@@ -15,8 +15,17 @@ Peptides is a Next.js App Router storefront for research-grade peptide products.
 
 ```bash
 npm install
+npm run cf-typegen   # generates cloudflare-env.d.ts (gitignored)
 npm run dev
 ```
+
+## Clean generated artifacts
+
+```bash
+npm run clean
+```
+
+Removes `.next/`, `.open-next/`, and `.wrangler/`.
 
 ## Cloudflare Build
 

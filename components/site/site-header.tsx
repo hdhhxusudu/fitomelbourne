@@ -4,16 +4,11 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useCart } from "@/components/providers/cart-provider"
+import { SiteLogo } from "@/components/site/site-logo"
 import { buttonVariants } from "@/components/ui/button"
+import { primaryNavLinks } from "@/lib/navigation"
 import { SITE_NAME } from "@/lib/site"
 import { cn } from "@/lib/cn"
-
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/shop", label: "Products" },
-  { href: "/products", label: "Catalog" },
-  { href: "/pay", label: "Pay" },
-] as const
 
 export function SiteHeader() {
   const { itemCount } = useCart()
@@ -42,29 +37,11 @@ export function SiteHeader() {
             className="group flex items-center gap-3"
             aria-label={`${SITE_NAME} home`}
           >
-            <div className="relative flex h-9 w-9 items-center justify-center border-2 border-ink bg-surface">
-              <div className="absolute right-0 top-0 h-2 w-2 bg-accent" aria-hidden="true" />
-              <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5 text-ink">
-                <circle cx="12" cy="8" r="3" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="7" cy="17" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-                <circle cx="17" cy="17" r="2.5" stroke="currentColor" strokeWidth="1.5" />
-                <line x1="12" y1="8" x2="7" y2="17" stroke="currentColor" strokeWidth="1.2" />
-                <line x1="12" y1="8" x2="17" y2="17" stroke="currentColor" strokeWidth="1.2" />
-                <line x1="7" y1="17" x2="17" y2="17" stroke="currentColor" strokeWidth="1.2" />
-              </svg>
-            </div>
-            <div className="leading-none">
-              <div className="font-display text-[15px] font-bold tracking-tight">
-                {SITE_NAME}
-              </div>
-              <div className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-                Research Supply
-              </div>
-            </div>
+            <SiteLogo showTagline />
           </Link>
 
           <nav className="hidden items-center gap-0 md:flex" aria-label="Main navigation">
-            {navLinks.map((link) => {
+            {primaryNavLinks.map((link) => {
               const isActive = pathname === link.href
               return (
                 <Link
@@ -190,7 +167,7 @@ export function SiteHeader() {
             </div>
 
             <nav className="flex-1 px-3 py-4" aria-label="Mobile navigation">
-              {navLinks.map((link) => (
+              {primaryNavLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
