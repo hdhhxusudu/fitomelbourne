@@ -1,0 +1,53 @@
+---
+description: Tailwind CSS and Next.js component development standards
+globs: **/*.tsx, **/*.ts, app/**/*.css
+alwaysApply: false
+---
+
+# Tailwind CSS + Next.js
+
+## Component creation
+
+When building UI, analyze requirements first, then:
+
+- Reuse or extend primitives in `components/ui/` before creating one-offs
+- Use `cn()` from `@/lib/cn` to merge Tailwind classes
+- Define explicit TypeScript types for props; avoid `any`, prefer `unknown` with guards
+- Include responsive variants (`sm:`, `md:`, `lg:`) and accessible markup (labels, focus, ARIA)
+- Handle loading, error, and empty states for data-driven UI
+- Prefer Server Components; add `'use client'` only for interactivity, hooks, or browser APIs
+
+## Next.js (App Router)
+
+- Use `app/` routes with bracket segments for dynamic params (e.g. `app/shop/[slug]/page.tsx`)
+- Validate and sanitize route params before use
+- Fetch in Server Components with async components; use `loading.tsx`, `error.tsx`, and `not-found.tsx`
+- Use `next/image` with `sizes`, `priority` when above the fold, and explicit dimensions
+- Colocate route UI under `app/`; shared UI under `components/`
+
+## TypeScript
+
+- `strict: true` is required; type parameters, returns, and complex props explicitly
+- Use `type` for unions and variant maps; use `interface` only when extension is needed
+- Prefer discriminated unions over ambiguous unions
+
+## Tailwind CSS v4
+
+- Style with utility classes; avoid custom CSS unless tokens, keyframes, or global base styles
+- Define design tokens in `app/globals.css` via `@theme inline` (colors, fonts, animations)
+- Reference tokens as utilities (e.g. `text-ink`, `bg-accent`, `font-display`)
+- Keep class order consistent: layout → spacing → typography → color → border → effects → states
+- Use project animations (`animate-fade-up`, `animate-fade-in`) for motion instead of ad-hoc CSS
+
+## Project structure
+
+- `components/` — presentational and feature components
+- `components/ui/` — reusable primitives (Button, Card, Input, etc.)
+- `lib/` — utilities, types, data helpers
+- `app/` — routes, layouts, global styles
+
+## Quality
+
+- Run `npm run lint` before committing; fix ESLint issues
+- Use Conventional Commits (`feat:`, `fix:`, `chore:`)
+- Keep changes small and focused; add tests for non-trivial logic when appropriate
