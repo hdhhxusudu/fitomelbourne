@@ -4,13 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/ensure-wrangler-config.mjs && next build",
     "start": "next start",
     "lint": "eslint",
-    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+    "cf:ensure-config": "node scripts/ensure-wrangler-config.mjs",
+    "preview": "npm run cf:ensure-config && opennextjs-cloudflare build && opennextjs-cloudflare preview",
+    "deploy": "npm run cf:ensure-config && opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "upload": "npm run cf:ensure-config && opennextjs-cloudflare build && opennextjs-cloudflare upload",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+    "postinstall": "node scripts/ensure-wrangler-config.mjs"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.19.11",

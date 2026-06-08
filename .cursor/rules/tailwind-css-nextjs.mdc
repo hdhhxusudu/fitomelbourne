@@ -1,7 +1,7 @@
 ---
 description: Tailwind CSS and Next.js component development standards
 globs: **/*.tsx, **/*.ts, app/**/*.css
-alwaysApply: false
+alwaysApply: true
 ---
 
 # Tailwind CSS + Next.js
