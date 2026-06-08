@@ -1,24 +1,26 @@
 {
-  "name": "fitomelbourne",
+  "name": "peptides",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build": "next build",
     "dev": "next dev",
-    "build": "node scripts/ensure-wrangler-config.mjs && next build",
     "start": "next start",
     "lint": "eslint",
-    "cf:ensure-config": "node scripts/ensure-wrangler-config.mjs",
-    "preview": "npm run cf:ensure-config && opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "deploy": "npm run cf:ensure-config && opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-    "upload": "npm run cf:ensure-config && opennextjs-cloudflare build && opennextjs-cloudflare upload",
-    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
-    "postinstall": "node scripts/ensure-wrangler-config.mjs"
+    "cf:build": "opennextjs-cloudflare build",
+    "preview": "npm run cf:build && wrangler dev",
+    "deploy": "npm run cf:build && wrangler deploy",
+    "deploy:dry-run": "npm run cf:build && wrangler deploy --dry-run",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.19.11",
     "next": "16.2.7",
     "react": "19.2.4",
     "react-dom": "19.2.4"
+  },
+  "overrides": {
+    "postcss": "^8.5.10"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

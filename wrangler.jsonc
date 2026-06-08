@@ -1,8 +1,8 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "fitomelbourne",
-  "compatibility_date": "2026-04-15",
+  "name": "peptides",
+  "compatibility_date": "2026-06-08",
   "compatibility_flags": [
     "nodejs_compat",
     "global_fetch_strictly_public"
@@ -14,7 +14,7 @@
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
-      "service": "fitomelbourne"
+      "service": "peptides"
     }
   ],
   "images": {

@@ -470,7 +470,7 @@ Klaviyo
 
 ## Frontend
 
-* Next.js 15
+* Next.js 16
 * TypeScript
 * Tailwind CSS
 * shadcn/ui
@@ -488,11 +488,7 @@ Klaviyo
 
 ### Primary
 
-* Vercel
-
-### Security/CDN
-
-* Cloudflare
+* Cloudflare Workers via OpenNext
 
 ## Payments
 
@@ -552,7 +548,7 @@ The next version should include:
 
 ## Deployment
 
-* Vercel deployment guide
+* Cloudflare OpenNext deployment guide
 * Environment setup
 * CI/CD workflow
 
