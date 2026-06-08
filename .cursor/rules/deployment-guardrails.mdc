@@ -1,0 +1,33 @@
+---
+description: Peptides deployment guardrails — Cloudflare Workers only, no Vercel or cross-project contamination
+alwaysApply: true
+---
+
+# Peptides Deployment Guardrails
+
+This repository is **Peptides only**. It must stay isolated from PetrolPricesNearMe, fitomelbourne, fitocreative, and any other unrelated projects.
+
+## Hosting (required)
+
+- **Primary:** Cloudflare Workers via OpenNext (`@opennextjs/cloudflare`)
+- **Config:** `wrangler.jsonc` (worker name: `peptides`)
+- **Build:** `npm run cf:build` → produces `.open-next/`
+- **Deploy:** `npm run deploy` → `opennextjs-cloudflare build` + `wrangler deploy`
+- **Local dev:** `npm run dev` (Next.js dev server)
+
+## Never add or reference
+
+- Vercel (`vercel.json`, `.vercel`, `VERCEL_*` env vars, Vercel deploy docs)
+- PetrolPricesNearMe / petrol / fuel project names or credentials
+- Unrelated GitHub repos, Cloudflare workers, or API tokens from other projects
+
+## Environment
+
+- Production URL: set `NEXT_PUBLIC_SITE_URL` (e.g. `https://peptides4u.com`)
+- Cloudflare auth: `CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID` in `.env.local` / `.dev.vars` (never commit)
+- Payments: `NEXT_PUBLIC_STRIPE_PAYMENT_LINK` or `NEXT_PUBLIC_PAYMENT_LINK` per `lib/payments.ts`
+
+## Stack (from peptides.md)
+
+- Next.js 16, TypeScript, Tailwind CSS 4, shadcn/ui patterns
+- Future: Supabase/Prisma, Sanity CMS, eWAY payments — not Vercel

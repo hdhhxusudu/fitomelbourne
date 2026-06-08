@@ -29,8 +29,8 @@ type CartContextValue = {
 
 const CartContext = createContext<CartContextValue | null>(null);
 
-const STORAGE_KEY = "peptides4lifr-cart-v1";
-const CART_EVENT = "peptides4lifr-cart-change";
+const STORAGE_KEY = "peptides-cart-v1";
+const CART_EVENT = "peptides-cart-change";
 const EMPTY_CART_LINES: CartStoredLine[] = [];
 
 function readStored(): CartStoredLine[] {
